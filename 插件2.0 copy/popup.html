@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DeepSeek Exporter</title>
+  <style>
+    body { 
+      font-family: sans-serif; 
+      padding: 15px;
+      min-width: 200px;
+    }
+    select, button { 
+      margin-top: 10px;
+      width: 100%;
+      padding: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h2>DeepSeek 对话导出</h2>
+  <select id="formatSelect">
+    <option value="json">JSON</option>
+    <option value="markdown">Markdown</option>
+    <option value="txt">Text</option>
+  </select>
+  <button id="exportButton">导出对话</button>
+  <script src="utils.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
