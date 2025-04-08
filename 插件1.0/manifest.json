@@ -1,0 +1,44 @@
+{
+  "name": "DeepSeek对话导出工具",
+  "version": "1.0",
+  "description": "一键导出DeepSeek聊天对话内容为文档格式，兼容各种DeepSeek界面版本。",
+  "manifest_version": 3,
+  "permissions": ["activeTab", "scripting", "downloads", "tabs", "storage"],
+  "host_permissions": ["*://*.deepseek.com/*", "*://*.deepseek.ai/*", "*://deepseek.com/*", "*://deepseek.ai/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "DeepSeek对话导出"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.deepseek.com/*", "*://*.deepseek.ai/*", "*://deepseek.com/*", "*://deepseek.ai/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["*://*.deepseek.com/*", "*://*.deepseek.ai/*", "*://deepseek.com/*", "*://deepseek.ai/*"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "author": "DeepSeek助手爱好者",
+  "homepage_url": "https://deepseek.com/"
+}
